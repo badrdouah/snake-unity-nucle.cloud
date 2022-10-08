@@ -232,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947be1054fbff4e1a92c69a3377f4cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDisplayName: {fileID: 1198856641}
 --- !u!222 &139742090
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1310,10 +1309,10 @@ RectTransform:
   m_Father: {fileID: 851282786}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.89158857}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -33.251236, y: 0.95983887}
-  m_SizeDelta: {x: 51.5025, y: -19.4946}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -2.5, y: 31}
+  m_SizeDelta: {x: 156.7718, y: 45.1577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501053626
 MonoBehaviour:
@@ -1409,51 +1408,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501053624}
   m_CullTransparentMesh: 1
---- !u!1 &501231546
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 501231548}
-  - component: {fileID: 501231547}
-  m_Layer: 0
-  m_Name: NucleCloudService
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &501231547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501231546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e5fe7c2f15b48bfa268be30c9ffd90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectId: 884939ef-46a1-11ed-8b23-f23c93dca3fd
-  scorePresetId: 64633679-46b7-11ed-8b23-f23c93dca3fd
---- !u!4 &501231548
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501231546}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516905207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,7 +2614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: H
+  m_Text: Home
 --- !u!222 &827608790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3028,31 +2982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194d82345fb2442c797a30dcdb3a07be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textEntries:
-  - displayName: {fileID: 494975677}
-    highScore: {fileID: 1106410301}
-    date: {fileID: 1250722375}
-  - displayName: {fileID: 1852931708}
-    highScore: {fileID: 1715603830}
-    date: {fileID: 660240069}
-  - displayName: {fileID: 567327271}
-    highScore: {fileID: 1833748949}
-    date: {fileID: 1855010527}
-  - displayName: {fileID: 462358822}
-    highScore: {fileID: 1473006050}
-    date: {fileID: 850193899}
-  - displayName: {fileID: 1448972597}
-    highScore: {fileID: 238829143}
-    date: {fileID: 1274574044}
-  - displayName: {fileID: 1553919343}
-    highScore: {fileID: 1668888003}
-    date: {fileID: 589678089}
-  - displayName: {fileID: 1792349981}
-    highScore: {fileID: 1497549705}
-    date: {fileID: 545260476}
-  - displayName: {fileID: 669448279}
-    highScore: {fileID: 307759599}
-    date: {fileID: 1544445519}
 --- !u!1 &870172018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,7 +3466,7 @@ GameObject:
   - component: {fileID: 1212325172}
   - component: {fileID: 1212325171}
   m_Layer: 5
-  m_Name: DisplayName
+  m_Name: Display Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4153,7 +4082,7 @@ GameObject:
   - component: {fileID: 1345431175}
   - component: {fileID: 1345431174}
   m_Layer: 5
-  m_Name: Connecting
+  m_Name: Wait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4211,9 +4140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Connecting
-
-'
+  m_Text: Please wait
 --- !u!222 &1345431175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5123,7 +5050,7 @@ RectTransform:
   - {fileID: 1854165626}
   - {fileID: 1375448820}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5147,7 +5074,7 @@ MonoBehaviour:
   GamePanel: {fileID: 1385787643}
   SignUpPanel: {fileID: 139742089}
   LeaderboardPanel: {fileID: 851282789}
-  ConnectingPanel: {fileID: 1854165627}
+  WaitingPanel: {fileID: 1854165627}
   DisconnectedPanel: {fileID: 1375448821}
   GameSpeed: 0.2
   Board: {fileID: 516905211}
@@ -6230,7 +6157,7 @@ GameObject:
   - component: {fileID: 1854165628}
   - component: {fileID: 1854165627}
   m_Layer: 5
-  m_Name: Connecting Panel
+  m_Name: Waiting Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6499,7 +6426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998971392
 GameObject:
@@ -6906,7 +6833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2128503956
 GameObject:

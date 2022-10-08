@@ -18,10 +18,10 @@ public static class NucleCloudService
         {
             // Create new anonymous user
             if (string.IsNullOrWhiteSpace(displayName)) displayName = "Guest";
-            await Anonymous.Create( projectId, SystemInfo.deviceUniqueIdentifier, displayName);
+            await Anonymous.Create( projectId, "hari", displayName);
 
             // login anonymous user
-            var loginResult = await Anonymous.Login(projectId, SystemInfo.deviceUniqueIdentifier);
+            var loginResult = await Anonymous.Login(projectId, "hari");
             if (loginResult != null)
             {
                 Game.Instance.UserToken = loginResult.userToken;
@@ -44,11 +44,11 @@ public static class NucleCloudService
         LoginResult result = null;
         try
         {
-            var anonymousUser = await Anonymous.Get(projectId, SystemInfo.deviceUniqueIdentifier);
+            var anonymousUser = await Anonymous.Get(projectId, "hari");
             if (anonymousUser != null)
             {
                 // login anonymous user
-                return await Anonymous.Login(projectId, SystemInfo.deviceUniqueIdentifier);
+                return await Anonymous.Login(projectId, "hari");
             }
             else
             {

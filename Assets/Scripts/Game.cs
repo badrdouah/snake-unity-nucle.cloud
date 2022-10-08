@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 using Utils;
 
@@ -128,7 +129,6 @@ public class Game : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Current user token.
     /// </summary>
@@ -203,7 +203,11 @@ public class Game : MonoBehaviour
 
             // Show menu
             ShowMenu();
-        } 
+        }
+        else
+        {
+            Menu.HighScore = 0;
+        }
   
 
         // Set controller

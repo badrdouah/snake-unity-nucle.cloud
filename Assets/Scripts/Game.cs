@@ -191,8 +191,8 @@ public class Game : MonoBehaviour
         // Show menu
         ShowConnectingPanel();
 
-        //login user and get highscore from the server
-        var loginResult = await NucleCloudService.Login();
+        //authenticate user and get highscore from the server
+        var loginResult = await NucleCloudService.SignIn();
         if (loginResult != null)
         {
             UserToken = loginResult.userToken;

@@ -11,17 +11,16 @@ public static class NucleCloudService
 
     public static string scorePresetId= "64633679-46b7-11ed-8b23-f23c93dca3fd";
 
- 
     public static async void SignUp(string displayName)
     {
         try
         {
             // Create new anonymous user
             if (string.IsNullOrWhiteSpace(displayName)) displayName = "Guest";
-            await Anonymous.Create( projectId, "hari", displayName);
+            await Anonymous.Create( projectId, SystemInfo.deviceUniqueIdentifier, displayName);
 
             // login anonymous user
-            var loginResult = await Anonymous.Login(projectId, "hari");
+            var loginResult = await Anonymous.Login(projectId, SystemInfo.deviceUniqueIdentifier);
             if (loginResult != null)
             {
                 Game.Instance.UserToken = loginResult.userToken;
@@ -37,18 +36,16 @@ public static class NucleCloudService
         }
     }
  
-
- 
-    public static async Task<LoginResult> Login()
+    public static async Task<LoginResult> SignIn()
     {
         LoginResult result = null;
         try
         {
-            var anonymousUser = await Anonymous.Get(projectId, "hari");
+            var anonymousUser = await Anonymous.Get(projectId, SystemInfo.deviceUniqueIdentifier);
             if (anonymousUser != null)
             {
                 // login anonymous user
-                return await Anonymous.Login(projectId, "hari");
+                return await Anonymous.Login(projectId, SystemInfo.deviceUniqueIdentifier);
             }
             else
             {

@@ -42,7 +42,6 @@ public class Game : MonoBehaviour
     /// Game controller.
     /// </summary>
     private Controller controller;
-
     /// <summary>
     /// Menu panel.
     /// </summary>
@@ -55,6 +54,23 @@ public class Game : MonoBehaviour
     /// Main game panel (with board).
     /// </summary>
     public GamePanel GamePanel;
+    /// <summary>
+    /// SignUp panel.
+    /// </summary>
+    public SignUpPanel SignUpPanel;
+    /// <summary>
+    /// Leaderboard panel.
+    /// </summary>
+    public LeaderboardPanel LeaderboardPanel;
+    /// <summary>
+    /// Connecting panel.
+    /// </summary>
+    public ConnectingPanel ConnectingPanel;
+    /// <summary>
+    /// Disconnected panel.
+    /// </summary>
+    public DisconnectedPanel DisconnectedPanel;
+
 
     /// <summary>
     /// Parameter specyfying delay between snake movements (in seconds).
@@ -69,6 +85,8 @@ public class Game : MonoBehaviour
 
     private int _score;
     private int _highScore;
+    private string _userToken;
+    private string _displayName;
 
     /// <summary>
     /// Current score.
@@ -84,7 +102,7 @@ public class Game : MonoBehaviour
             _score = value;
             GamePanel.Score = value;
             GameOver.Score = value;
-
+    
             if (value > HighScore)
             {
                 HighScore = value;
@@ -104,9 +122,42 @@ public class Game : MonoBehaviour
         set
         {
             _highScore = value;
-            PlayerPrefs.SetInt("High Score", value);
+            NucleCloudService.SetScore(value);
             GamePanel.HighScore = value;
             Menu.HighScore = value;
+        }
+    }
+
+
+    /// <summary>
+    /// Current user token.
+    /// </summary>
+    public string UserToken
+    {
+        get
+        {
+            return _userToken;
+        }
+        set
+        {
+            _userToken = value;
+
+        }
+    }
+
+    /// <summary>
+    /// Current display name.
+    /// </summary>
+    public string DisplayName
+    {
+        get
+        {
+            return _displayName;
+        }
+        set
+        {
+            _displayName = value;
+            Menu.DisplayName = value;
         }
     }
 
@@ -115,13 +166,41 @@ public class Game : MonoBehaviour
     /// </summary>
     public bool Paused { get; private set; }
 
+    private static Game _instance;
+
+    public static Game Instance { get { return _instance; } }
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     // Use this for initialization
-    void Start()
+     async void Start()
     {
         // Display current high score.
-        HighScore = PlayerPrefs.GetInt("High Score", 0);
 
-        // Show main menu
+        // Show menu
+        ShowConnectingPanel();
+
+        // HighScore = PlayerPrefs.GetInt("High Score", 0);
+        var loginResult = await NucleCloudService.Login();
+        if (loginResult != null)
+        {
+            UserToken = loginResult.userToken;
+            DisplayName = loginResult.user.displayName;
+        }
+        HighScore = await NucleCloudService.GetScore();
+
+        // Show menu
         ShowMenu();
 
         // Set controller
@@ -229,6 +308,36 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
+    /// Shows sign up panel.
+    /// </summary>
+    public void ShowSignUpPanel()
+    {
+        HideAllPanels();
+        SignUpPanel.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Shows sign up panel.
+    /// </summary>
+    public void ShowLeaderboardPanel()
+    {
+        HideAllPanels();
+        LeaderboardPanel.gameObject.SetActive(true);
+    }
+
+    public void ShowConnectingPanel()
+    {
+        HideAllPanels();
+        ConnectingPanel.gameObject.SetActive(true);
+    }
+
+    public void ShowDisconnectedPanel()
+    {
+        HideAllPanels();
+        DisconnectedPanel.gameObject.SetActive(true);
+    }
+
+    /// <summary>
     /// Hides all panels.
     /// </summary>
     private void HideAllPanels()
@@ -236,6 +345,10 @@ public class Game : MonoBehaviour
         Menu.gameObject.SetActive(false);
         GamePanel.gameObject.SetActive(false);
         GameOver.gameObject.SetActive(false);
+        SignUpPanel.gameObject.SetActive(false);
+        LeaderboardPanel.gameObject.SetActive(false);
+        ConnectingPanel.gameObject.SetActive(false);
+        DisconnectedPanel.gameObject.SetActive(false);
     }
 
     /// <summary>

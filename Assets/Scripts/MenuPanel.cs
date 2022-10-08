@@ -8,12 +8,22 @@ public class MenuPanel : MonoBehaviour
     /// <summary>
     /// Text displayed before score value. 
     /// </summary>
-    private String textPrefix;
+    private String textHighScorePrefix;
+
+    /// <summary>
+    /// Text displayed before score value. 
+    /// </summary>
+    private String textDisplayNamePrefix;
 
     /// <summary>
     /// Text showing high score.
     /// </summary>
     private Text textHighScore;
+
+    /// <summary>
+    /// Text showing high score.
+    /// </summary>
+    private Text textDisplayName;
 
     private int _highScore;
 
@@ -29,7 +39,26 @@ public class MenuPanel : MonoBehaviour
         set
         {
             _highScore = value;
-            textHighScore.text = textPrefix + value.ToString();
+            textHighScore.text = textHighScorePrefix + value.ToString();
+        }
+    }
+
+
+    private string _displayName;
+
+    /// <summary>
+    /// Gets or sets currently displayed high score.
+    /// </summary>
+    public string DisplayName
+    {
+        get
+        {
+            return _displayName;
+        }
+        set
+        {
+            _displayName = value;
+            textDisplayName.text = textDisplayNamePrefix + value.ToString();
         }
     }
 
@@ -37,7 +66,10 @@ public class MenuPanel : MonoBehaviour
     void Awake()
     {
         textHighScore = transform.Find("High Score").GetComponent<Text>();
-        textPrefix = textHighScore.text;
+        textHighScorePrefix = textHighScore.text;
+
+        textDisplayName = transform.Find("Display Name").GetComponent<Text>();
+        textDisplayNamePrefix = textDisplayName.text;
     }
 
     // Update is called once per frame

@@ -15,6 +15,7 @@ public static class NucleCloudService
     {
         try
         {
+            Game.Instance.ShowWaitingPanel();
             // Create new anonymous user
             if (string.IsNullOrWhiteSpace(displayName)) displayName = "Guest";
             await Anonymous.Create( projectId, SystemInfo.deviceUniqueIdentifier, displayName);

@@ -66,7 +66,7 @@ public class Game : MonoBehaviour
     /// <summary>
     /// Connecting panel.
     /// </summary>
-    public ConnectingPanel ConnectingPanel;
+    public WaitingPanel WaitingPanel;
     /// <summary>
     /// Disconnected panel.
     /// </summary>
@@ -189,7 +189,7 @@ public class Game : MonoBehaviour
         // Display current high score.
 
         // Show menu
-        ShowConnectingPanel();
+        ShowWaitingPanel();
 
         //authenticate user and get highscore from the server
         var loginResult = await NucleCloudService.SignIn();
@@ -332,10 +332,10 @@ public class Game : MonoBehaviour
         LeaderboardPanel.gameObject.SetActive(true);
     }
 
-    public void ShowConnectingPanel()
+    public void ShowWaitingPanel()
     {
         HideAllPanels();
-        ConnectingPanel.gameObject.SetActive(true);
+        WaitingPanel.gameObject.SetActive(true);
     }
 
     public void ShowDisconnectedPanel()
@@ -354,7 +354,7 @@ public class Game : MonoBehaviour
         GameOver.gameObject.SetActive(false);
         SignUpPanel.gameObject.SetActive(false);
         LeaderboardPanel.gameObject.SetActive(false);
-        ConnectingPanel.gameObject.SetActive(false);
+        WaitingPanel.gameObject.SetActive(false);
         DisconnectedPanel.gameObject.SetActive(false);
     }
 

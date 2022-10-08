@@ -12,10 +12,10 @@ public class ConnectingPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-          textConnecting = transform.Find("Connecting").GetComponent<Text>();
+
+        textConnecting = transform.Find("Connecting").GetComponent<Text>();
         InvokeRepeating("Connecting",0,0.5f);
     }
-
 
     private void Connecting()
     {
@@ -23,14 +23,4 @@ public class ConnectingPanel : MonoBehaviour
         if (count >= 4) textConnecting.text = "Connecting";
         textConnecting.text += ".";
     }
-    // Update is called once per frame
-   // void Update()
-   // {
-   //     t += Time.deltaTime;
-   //     if (t >= 0.5f)
-   //     {
-   //         textConnecting.text += ".";
-   //         t = 0;
-   //     }
-   // }
 }

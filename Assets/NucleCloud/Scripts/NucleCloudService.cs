@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Nucle.Cloud;
 using UnityEngine;
-using UnityEngine.UI;
-
+ 
 public static class NucleCloudService 
 {
     public static string projectId= "884939ef-46a1-11ed-8b23-f23c93dca3fd";

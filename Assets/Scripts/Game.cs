@@ -191,17 +191,20 @@ public class Game : MonoBehaviour
         // Show menu
         ShowConnectingPanel();
 
-        // HighScore = PlayerPrefs.GetInt("High Score", 0);
+        //login user and get highscore from the server
         var loginResult = await NucleCloudService.Login();
         if (loginResult != null)
         {
             UserToken = loginResult.userToken;
             DisplayName = loginResult.user.displayName;
-        }
-        HighScore = await NucleCloudService.GetScore();
 
-        // Show menu
-        ShowMenu();
+            //Get highScore
+            HighScore = await NucleCloudService.GetScore();
+
+            // Show menu
+            ShowMenu();
+        } 
+  
 
         // Set controller
         controller = GetComponent<Controller>();

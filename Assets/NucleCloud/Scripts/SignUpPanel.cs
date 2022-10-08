@@ -14,7 +14,7 @@ public class SignUpPanel : MonoBehaviour
 
     private void Awake()
     {
-        textDisplayName = transform.Find("Display Name").GetComponent<Text>();
+        textDisplayName = transform.Find("Display Name").Find("Text").GetComponent<Text>();
     }
 
     /// <summary>
